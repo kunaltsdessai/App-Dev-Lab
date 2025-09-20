@@ -1,4 +1,4 @@
-package com.example.counterapp;
+package com.example.counter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int counter = 0;
     private TextView tvCounter;
-    private Button btnIncrement, btnDecrement, btnReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,35 +18,26 @@ public class MainActivity extends AppCompatActivity {
 
         // Connect UI elements
         tvCounter = findViewById(R.id.tvCounter);
-        btnIncrement = findViewById(R.id.btnIncrement);
-        btnDecrement = findViewById(R.id.btnDecrement);
-        btnReset = findViewById(R.id.btnReset);
+        Button btnIncrement = findViewById(R.id.btnIncrement);
+        Button btnDecrement = findViewById(R.id.btnDecrement);
+        Button btnReset = findViewById(R.id.btnReset);
 
         // Increment
-        btnIncrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                counter++;
-                tvCounter.setText(String.valueOf(counter));
-            }
+        btnIncrement.setOnClickListener(v -> {
+            counter++;
+            tvCounter.setText(String.valueOf(counter));
         });
 
         // Decrement
-        btnDecrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                counter--;
-                tvCounter.setText(String.valueOf(counter));
-            }
+        btnDecrement.setOnClickListener(v -> {
+            counter--;
+            tvCounter.setText(String.valueOf(counter));
         });
 
         // Reset
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                counter = 0;
-                tvCounter.setText(String.valueOf(counter));
-            }
+        btnReset.setOnClickListener(v -> {
+            counter = 0;
+            tvCounter.setText(String.valueOf(counter));
         });
     }
 }
